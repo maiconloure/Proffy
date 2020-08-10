@@ -3,6 +3,8 @@ import PageHeader from "../../components/PageHeader";
 import "./style.css";
 import Input from "../../components/Input";
 import warningIcon from "../../assets/images/icons/warning.svg";
+import Textarea from "../../components/Textarea";
+import Select from "../../components/Select";
 
 const TeacherForm = () => {
   return (
@@ -17,12 +19,55 @@ const TeacherForm = () => {
           <Input name="name" label="Nome completo" />
           <Input name="avatar" label="Avatar" />
           <Input name="whatsapp" label="WhatsApp" />
+          <Textarea name="bio" label="Biografia" />
         </fieldset>
 
         <fieldset>
           <legend>Sobre a aula</legend>
-          <Input name="subject" label="Matéria" />
+          <Select
+            name="subject"
+            label="Matéria"
+            options={[
+              { value: "Artes", label: "Artes" },
+              { value: "Biologia", label: "Biologia" },
+              { value: "Ciências", label: "Ciências" },
+              { value: "Educação Física", label: "Educação Física" },
+              { value: "Física", label: "Física" },
+              { value: "História", label: "História" },
+              { value: "Matemática", label: "Matemática" },
+              { value: "Português", label: "Português" },
+              { value: "Química", label: "Química" },
+              { value: "Filosofia", label: "Filosofia" },
+              { value: "Sociologia", label: "Sociologia" },
+              { value: "Inglês", label: "Inglês" },
+            ]}
+          />
           <Input name="cost" label="Custo da sua hora por aula" />
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Horários disponíveis
+            <button type="button">+ Novo horário</button>
+          </legend>
+
+          <div className="schedule-item">
+            <Select
+              name="week_day"
+              label="Dia da semana"
+              options={[
+                { value: "0", label: "Sunday" },
+                { value: "1", label: "Monday  " },
+                { value: "2", label: "Tuesday" },
+                { value: "3", label: "Wednesday" },
+                { value: "4", label: "Thursday" },
+                { value: "5", label: "Friday" },
+                { value: "6", label: "Saturday" },
+              ]}
+            />
+            <Input name="from" label="Das" type="time" />
+            <Input name="to" label="Até" type="time" />
+          </div>
         </fieldset>
 
         <footer>
